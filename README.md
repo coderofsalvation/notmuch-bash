@@ -1,7 +1,7 @@
 notmuch-bash
 ============
 
-portable bash client (attempt) for notmuch (bashwrapper which saves you a lot of typing)
+simple consolewrapper for notmuch to save yourself from typing all the time
 
 <img src="http://media.giphy.com/media/d8v55gXkiNj3y/giphy.gif"/>
 
