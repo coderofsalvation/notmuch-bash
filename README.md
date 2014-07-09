@@ -56,7 +56,7 @@ However, on my local laptops I use a simple remote bashwrapper for the `notmuch`
     (open the notmuch file in an editor and change the host/ip e.g.)
     cp notmuch ~/bin/notmuch
     
-Now you can run 'notmuch-bash' and 'notmuch' on your laptop (while it actually executes at the homeserver).
+Now your local 'notmuch-bash' can run 'notmuch' on your laptop (while 'notmuch' actually executes at the homeserver).
  
 ### Known Issues
 
