@@ -1,7 +1,7 @@
 notmuch-bash
 ============
 
-portable bash client for notmuch (bashwrapper which saves you a lot of typing)
+portable bash client (attempt) for notmuch (bashwrapper which saves you a lot of typing)
 
 <img src="http://media.giphy.com/media/d8v55gXkiNj3y/giphy.gif"/>
 
@@ -56,3 +56,7 @@ However, on my local laptops I use a simple remote bashwrapper for the `notmuch`
     cp notmuch ~/bin/notmuch
     
 Now you can run 'notmuch-bash' and 'notmuch' on your laptop (while it actually executes at the homeserver).
+ 
+### Known Issues
+
+* 'show' does not display message which are multipart-messages
