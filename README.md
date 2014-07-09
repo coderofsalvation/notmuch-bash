@@ -1,7 +1,7 @@
 notmuch-bash
 ============
 
-portable bash client (attempt) for notmuch (bashwrapper which saves you a lot of typing)
+simple consolewrapper for notmuch to save yourself from typing all the time
 
 <img src="http://media.giphy.com/media/d8v55gXkiNj3y/giphy.gif"/>
 
@@ -52,10 +52,11 @@ My email gets fetched and tagged on my homeserver.
 However, on my local laptops I use a simple remote bashwrapper for the `notmuch` binary, you can do this like so:
 
     wget "https://gist.githubusercontent.com/coderofsalvation/c60a1cde22d972828d4c/raw/a04ac4e82468d024e5865444292417e4555fd3f3/remotewrapper.bash" -O notmuch
-    sed -i 's/cmd=asciidoc/cmd=notmuch/g' notmuch
+    sed -i 's/cmd=asciidoc/cmd=notmuch/g' notmuch
+    (open the notmuch file in an editor and change the host/ip e.g.)
     cp notmuch ~/bin/notmuch
     
-Now you can run 'notmuch-bash' and 'notmuch' on your laptop (while it actually executes at the homeserver).
+Now your local 'notmuch-bash' can run 'notmuch' on your laptop (while 'notmuch' actually executes at the homeserver).
  
 ### Known Issues
 
