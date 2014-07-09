@@ -2,8 +2,6 @@
 # author: Leon van Kammen / Coder of Salvation 2014
 # 
 # simple consolewrapper for notmuch to save yourself from typing all the time
-#
-# more info: https://github.com/coderofsalvation/notmuch-bash
 
 C_NORMAL="\\033[0;0m"
 C_GREEN="\\033[0;32m"
@@ -12,9 +10,10 @@ cache=()
 # here you can define your preset calls
 # the variables can be insert directly in the console ('foo=flop' e.g.)
 cache+=('search tag:todo')
-cache+=('search tag:billy')
 cache+=('search tag:unread')
 cache+=('showtags')
+notmuch search --output=tags '*' > ~/.notmuch.tags
+while read line; do cache+=("search tag:$line"); done < ~/.notmuch.tags
 cache+=('search tag:inbox')
 
 ITEMS=()
@@ -70,16 +69,10 @@ process(){
   teach
 }
 
-gettags(){
-  printf "\n$C_WHITE""possible tags:\n$C_GREEN"
-  notmuch search --output=tags '*' | pr -o2 -T --columns=5
-  echo
-  printf "$C_NORMAL"
-}
-
 showtags(){
-  [[ "${#tags}" == 0 ]] && tags="$(gettags)"
-  echo "$tags"
+  printf "\n$C_WHITE""possible tags:\n$C_GREEN"
+  echo "$tags" | pr -o2 -T --columns=5
+  printf "$C_NORMAL"
 }
 
 subconsole(){
