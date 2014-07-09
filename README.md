@@ -3,6 +3,10 @@ notmuch-bash
 
 portable bash client for notmuch (bashwrapper which saves you a lot of typing)
 
+<img src="http://media.giphy.com/media/d8v55gXkiNj3y/giphy.gif"/>
+
+⬈ This is the effect of notmuch
+
 ### Usage
 
     press arrow up to cycle suggestions
