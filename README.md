@@ -25,7 +25,7 @@ simple consolewrapper for notmuch to save yourself from typing all the time
     thread:0000000000006979      July 01 [1/1] Foobar; "The 12 Most Ridiculously Awesome Geeky Kittnes"
     --MORE--
     
-    notmuchbash> show thread:0000000000006978
+    notmuchbash> thread:0000000000006978
     
     StumbleUpon <no-reply@stumblemail.com> (July 01) (inbox unread)
     Subject: "The 10 Most Ridiculously Awesome Geeky Computer Pranks," and more recommendations just for you
