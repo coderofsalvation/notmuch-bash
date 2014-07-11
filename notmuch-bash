@@ -7,17 +7,19 @@ C_NORMAL="\\033[0;0m"
 C_GREEN="\\033[0;32m"
 cache=()
 
+tags=""
+tagsstr=""
 # here you can define your preset calls
 # the variables can be insert directly in the console ('foo=flop' e.g.)
 cache+=('search tag:todo')
-cache+=('search tag:unread')
 cache+=('showtags')
 notmuch search --output=tags '*' > ~/.notmuch.tags
-while read line; do cache+=("search tag:$line"); done < ~/.notmuch.tags
+while read line; do cache+=("search tag:$line"); tagsstr="$tagsstr$line "; done < ~/.notmuch.tags
+cache+=('search tag:unread')
 cache+=('search tag:inbox')
+cache+=('summary')
 
 ITEMS=()
-tags=""
 
 # utility functions
 function wraplines(){
@@ -58,8 +60,21 @@ aliases(){
   echo "$arg"
 }
 
+printline(){
+  for((i=0;i<$(tput cols);i++)); do printf "━"; done
+}
+
+summary(){
+  for tag in $tagsstr; do
+    echo -e "\n$tag" | tr '[:lower:]' '[:upper:]'
+    printline
+    notmuch search --limit=5 tag:$tag
+  done 
+}
+
 process(){
   arg="$(aliases "$1")"
+  [[ "$arg" =~ ^thread  ]] && arg="show $arg"
   [[ "$arg" =~ ^search" " ]] || [[ "$arg" =~ ^show" " ]] || [[ "$arg" =~ ^searchshow" " ]] || [[ "$arg" =~ ^tag" " ]] && {
     eval "notmuch ${arg} | filter \"$arg\" | more" 
     return 0;
